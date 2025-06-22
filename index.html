@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Builder</title>
+<style>
+    body {
+        font-family: Quicksand, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #AEC6CF;
+    }
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Build Your Resume</h1>
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Your Name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Your Email">
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" placeholder="Your Phone Number">
+
+    <label for="summary">Summary:</label>
+    <textarea id="summary" rows="4" placeholder="Brief Summary"></textarea>
+
+    <button onclick="generateResume()">Generate Resume</button>
+
+    <div id="resume"></div>
+</div>
+
+<script>
+function generateResume() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const summary = document.getElementById('summary').value;
+
+    const resume = `
+        <h2>${name}</h2>
+        <p>Email: ${email}</p>
+        <p>Phone: ${phone}</p>
+        <h3>Summary</h3>
+        <p>${summary}</p>
+    `;
+
+    document.getElementById('resume').innerHTML = resume;
+}
+</script>
+</body>
+</html>
